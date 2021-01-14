@@ -1,0 +1,2 @@
+# dynamic_programming
+Studying dynamic_programming
