@@ -14,10 +14,10 @@ if N >= 2:
     dp2.append(stair[1])
 
     # 세 번 계단을 한칸씩 오를 수 없으므로
-    # dp1의 경우, 두 계단 전에서 두 칸 오르거나 전 계단 오르지 않은 상태에서 한 칸 오르기
+    # dp1의 경우, 이전 계단을 올라야 하므로 dp2[i-1]
     # dp2의 경우, 설정한 것에 따라 이전 계단을 밟지 않으므로 
     for i in range(2, N):
-        dp1.append(max(dp1[i-2], dp2[i-1]) + stair[i])
+        dp1.append(dp2[i-1] + stair[i])
         dp2.append(max(dp1[i-2], dp2[i-2]) + stair[i])
 
 print(max(dp1[N-1], dp2[N-1]))
